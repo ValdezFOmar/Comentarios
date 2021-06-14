@@ -1,4 +1,3 @@
-0|0|fjfj|Inapropiado|Coco|coco@gmail.com|323.3.24.24|13/06/2021 17:21
-1|2|kadhfaidf|Inapropiado|Coco|coco@gmail.com|323.3.24.24|13/06/2021 18:21
-2|1|sgsdgsdgsg|Borrar|Coco|coco@gmail.com|323.3.24.24|13/06/2021 18:21
-3|0|fgsahfah|Normal|Coco|coco@gmail.com|323.3.24.24|13/06/2021 18:21
+0|1|que bonito perro|Normal|Coco|coco@gmail.com|323.3.24.24|13/06/2021 21:10
+1|0|jsjajsjas|Inapropiado|Coco|coco@gmail.com|323.3.24.24|13/06/2021 21:10
+2|3|Por eso es mi profesor favorito|Normal|Coco|coco@gmail.com|323.3.24.24|13/06/2021 21:11

@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.IO;
 using System.Windows.Forms;
 using System.Globalization;
@@ -28,7 +25,7 @@ namespace Comentarios
         }
     }
 
-    class Comentario
+    class Comentario : IComparable
     {
         public int ID { get; set; }
         public int Likes { get; set; }
@@ -64,12 +61,16 @@ namespace Comentarios
             }
             return String.Format(comentario);
         }
-    }
 
+        public int CompareTo(object obj)
+        {
+            return Likes.CompareTo((obj as Comentario).Likes);
+        }
+
+    }
     class ComentarioDB
     {
         //Ruta = C:\Users\Usuario\OOP-21\Comentarios\ComentariosDB.txt
-
         
         public static void SaveToFile(List<Comentario> comentarios, string path)
         {

@@ -1,13 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.IO;
 
 namespace Comentarios
 {
@@ -85,7 +80,15 @@ namespace Comentarios
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            ComentarioDB.SaveToFile(comentarios, @"C:\Users\Usuario\OOP-21\Comentarios\ComentariosDB.txt");
+            var idMenorAMayor = from c in comentarios
+                                          orderby c.ID ascending
+                                          select c;
+            comentariosFromFile.Clear();
+            foreach (var c in idMenorAMayor)
+            {
+                comentariosFromFile.Add(c);
+            }
+            ComentarioDB.SaveToFile(comentariosFromFile, @"C:\Users\Usuario\OOP-21\Comentarios\ComentariosDB.txt");
         }
 
         private void BtnLike_Click(object sender, EventArgs e)
@@ -95,6 +98,25 @@ namespace Comentarios
             {
                 comentarios[index].Likes += 1;
             }
+            EscribirComentarios();
+        }
+
+        private void BtnOrdenarReciente_Click(object sender, EventArgs e)
+        {
+            var orderByDescendingResult = from c in comentarios
+                                          orderby c.Fecha descending
+                                          select c;
+            ListBoxComentarios.Items.Clear();
+            foreach (var c in orderByDescendingResult)
+            {
+                ListBoxComentarios.Items.Add(c);
+            }
+        }
+
+        private void BtnOrdenarLikes_Click(object sender, EventArgs e)
+        {
+            comentarios.Sort();
+            comentarios.Reverse();
             EscribirComentarios();
         }
     }

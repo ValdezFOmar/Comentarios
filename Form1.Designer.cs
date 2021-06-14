@@ -36,6 +36,8 @@ namespace Comentarios
             this.BtnBorrar = new System.Windows.Forms.Button();
             this.BtnReportar = new System.Windows.Forms.Button();
             this.BtnLike = new System.Windows.Forms.Button();
+            this.BtnOrdenarLikes = new System.Windows.Forms.Button();
+            this.BtnOrdenarReciente = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,9 +53,9 @@ namespace Comentarios
             // SubirComentarioBtn
             // 
             this.SubirComentarioBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.SubirComentarioBtn.Location = new System.Drawing.Point(1036, 29);
+            this.SubirComentarioBtn.Location = new System.Drawing.Point(1023, 29);
             this.SubirComentarioBtn.Name = "SubirComentarioBtn";
-            this.SubirComentarioBtn.Size = new System.Drawing.Size(97, 32);
+            this.SubirComentarioBtn.Size = new System.Drawing.Size(111, 32);
             this.SubirComentarioBtn.TabIndex = 2;
             this.SubirComentarioBtn.Text = "Subir";
             this.SubirComentarioBtn.UseVisualStyleBackColor = true;
@@ -83,9 +85,9 @@ namespace Comentarios
             // BtnBorrar
             // 
             this.BtnBorrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.BtnBorrar.Location = new System.Drawing.Point(1036, 110);
+            this.BtnBorrar.Location = new System.Drawing.Point(1023, 214);
             this.BtnBorrar.Name = "BtnBorrar";
-            this.BtnBorrar.Size = new System.Drawing.Size(97, 32);
+            this.BtnBorrar.Size = new System.Drawing.Size(111, 32);
             this.BtnBorrar.TabIndex = 5;
             this.BtnBorrar.Text = "Borrar";
             this.BtnBorrar.UseVisualStyleBackColor = true;
@@ -94,9 +96,9 @@ namespace Comentarios
             // BtnReportar
             // 
             this.BtnReportar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.BtnReportar.Location = new System.Drawing.Point(1036, 148);
+            this.BtnReportar.Location = new System.Drawing.Point(1023, 252);
             this.BtnReportar.Name = "BtnReportar";
-            this.BtnReportar.Size = new System.Drawing.Size(97, 32);
+            this.BtnReportar.Size = new System.Drawing.Size(111, 32);
             this.BtnReportar.TabIndex = 6;
             this.BtnReportar.Text = "Reportar";
             this.BtnReportar.UseVisualStyleBackColor = true;
@@ -105,20 +107,44 @@ namespace Comentarios
             // BtnLike
             // 
             this.BtnLike.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.BtnLike.Location = new System.Drawing.Point(1036, 72);
+            this.BtnLike.Location = new System.Drawing.Point(1023, 176);
             this.BtnLike.Name = "BtnLike";
-            this.BtnLike.Size = new System.Drawing.Size(97, 32);
+            this.BtnLike.Size = new System.Drawing.Size(111, 32);
             this.BtnLike.TabIndex = 7;
             this.BtnLike.Text = "Like";
             this.BtnLike.UseVisualStyleBackColor = true;
             this.BtnLike.Click += new System.EventHandler(this.BtnLike_Click);
+            // 
+            // BtnOrdenarLikes
+            // 
+            this.BtnOrdenarLikes.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.BtnOrdenarLikes.Location = new System.Drawing.Point(1023, 110);
+            this.BtnOrdenarLikes.Name = "BtnOrdenarLikes";
+            this.BtnOrdenarLikes.Size = new System.Drawing.Size(111, 33);
+            this.BtnOrdenarLikes.TabIndex = 9;
+            this.BtnOrdenarLikes.Text = "Mas Likes";
+            this.BtnOrdenarLikes.UseVisualStyleBackColor = true;
+            this.BtnOrdenarLikes.Click += new System.EventHandler(this.BtnOrdenarLikes_Click);
+            // 
+            // BtnOrdenarReciente
+            // 
+            this.BtnOrdenarReciente.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.BtnOrdenarReciente.Location = new System.Drawing.Point(1023, 72);
+            this.BtnOrdenarReciente.Name = "BtnOrdenarReciente";
+            this.BtnOrdenarReciente.Size = new System.Drawing.Size(111, 32);
+            this.BtnOrdenarReciente.TabIndex = 8;
+            this.BtnOrdenarReciente.Text = "Recientes";
+            this.BtnOrdenarReciente.UseVisualStyleBackColor = true;
+            this.BtnOrdenarReciente.Click += new System.EventHandler(this.BtnOrdenarReciente_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(1159, 504);
+            this.ClientSize = new System.Drawing.Size(1142, 504);
+            this.Controls.Add(this.BtnOrdenarLikes);
+            this.Controls.Add(this.BtnOrdenarReciente);
             this.Controls.Add(this.BtnLike);
             this.Controls.Add(this.BtnReportar);
             this.Controls.Add(this.BtnBorrar);
@@ -145,6 +171,8 @@ namespace Comentarios
         private System.Windows.Forms.Button BtnBorrar;
         private System.Windows.Forms.Button BtnReportar;
         private System.Windows.Forms.Button BtnLike;
+        private System.Windows.Forms.Button BtnOrdenarLikes;
+        private System.Windows.Forms.Button BtnOrdenarReciente;
     }
 }
 
