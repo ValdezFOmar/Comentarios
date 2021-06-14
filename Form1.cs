@@ -8,11 +8,20 @@ namespace Comentarios
 {
     public partial class Form1 : Form
     {
+        string Estado = "Normal";
         List<Comentario> comentariosFromFile = ComentarioDB.ReadFromFile(@"C:\Users\Usuario\OOP-21\Comentarios\ComentariosDB.txt");
         List<Comentario> comentarios = new List<Comentario>();
 
         public void EscribirComentarios()
         {
+            if (Estado == "Likes")
+            {
+                comentarios = ComentarioDB.OrdenarLikes(comentarios);
+            }
+            else if (Estado == "Reciente")
+            {
+                comentarios = ComentarioDB.OrdenarRecientes(comentarios);
+            }
             ListBoxComentarios.Items.Clear();
             foreach (Comentario c in comentarios)
             {
@@ -41,7 +50,7 @@ namespace Comentarios
             Comentario comentario = new Comentario(id, 0, ComentarioTxt.Text.Trim(), "Normal",
                                                    new Usuario("Coco", "coco@gmail.com", "323.3.24.24"), DateTime.Now);
             comentarios.Add(comentario);
-            ListBoxComentarios.Items.Add(comentario);
+            EscribirComentarios();
             ComentarioTxt.Text = "";
             ComentarioTxt.Focus();
         }
@@ -103,13 +112,13 @@ namespace Comentarios
 
         private void BtnOrdenarReciente_Click(object sender, EventArgs e)
         {
-            comentarios = ComentarioDB.OrdenarRecientes(comentarios);
+            Estado = "Reciente";
             EscribirComentarios();
         }
 
         private void BtnOrdenarLikes_Click(object sender, EventArgs e)
         {
-            comentarios = ComentarioDB.OrdenarLikes(comentarios);
+            Estado = "Likes";
             EscribirComentarios();
         }
     }

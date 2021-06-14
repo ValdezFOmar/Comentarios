@@ -26,7 +26,6 @@ namespace Comentarios
             return String.Format($"{Nombre}");
         }
     }
-
     class Comentario : IComparable
     {
         public int ID { get; set; }
@@ -169,6 +168,5 @@ namespace Comentarios
             }
             return comentariosOrdenados;
         }
-
     }
 }
