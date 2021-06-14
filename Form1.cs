@@ -103,20 +103,13 @@ namespace Comentarios
 
         private void BtnOrdenarReciente_Click(object sender, EventArgs e)
         {
-            var orderByDescendingResult = from c in comentarios
-                                          orderby c.Fecha descending
-                                          select c;
-            ListBoxComentarios.Items.Clear();
-            foreach (var c in orderByDescendingResult)
-            {
-                ListBoxComentarios.Items.Add(c);
-            }
+            comentarios = ComentarioDB.OrdenarRecientes(comentarios);
+            EscribirComentarios();
         }
 
         private void BtnOrdenarLikes_Click(object sender, EventArgs e)
         {
-            comentarios.Sort();
-            comentarios.Reverse();
+            comentarios = ComentarioDB.OrdenarLikes(comentarios);
             EscribirComentarios();
         }
     }

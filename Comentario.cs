@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
 using System.Globalization;
+using System.Data;
+using System.Linq;
 
 namespace Comentarios
 {
@@ -49,15 +51,15 @@ namespace Comentarios
             string comentario;
             if (Estado == "Borrar")
             {
-                comentario = $"By: {Autor}; Likes: {Likes}; Este comentario ha sido borrado; On: {Fecha}";
+                comentario = $"By: {Autor} - Este comentario ha sido borrado - Likes: {Likes} - On: {Fecha}";
             }
             else if (Estado == "Inapropiado")
             {
-                comentario = $"By: {Autor}; Likes: {Likes}; Este comentario fue marcado como inapropiado; On: {Fecha}";
+                comentario = $"By: {Autor} - Este comentario fue marcado como inapropiado - Likes: {Likes} - On: {Fecha}";
             }
             else
             {
-                comentario = $"By: {Autor}; Likes: {Likes}; \" {Texto} \"; On: {Fecha}";
+                comentario = $"By: {Autor} - \" {Texto} \" - Likes: {Likes} - On: {Fecha}";
             }
             return String.Format(comentario);
         }
@@ -71,7 +73,6 @@ namespace Comentarios
     class ComentarioDB
     {
         //Ruta = C:\Users\Usuario\OOP-21\Comentarios\ComentariosDB.txt
-        
         public static void SaveToFile(List<Comentario> comentarios, string path)
         {
             StreamWriter textOut = null;
@@ -106,7 +107,6 @@ namespace Comentarios
                 }
             }
         }
-
         public static List<Comentario> ReadFromFile(string path)
         {
             List<Comentario> comentarios = new List<Comentario>();
@@ -145,6 +145,30 @@ namespace Comentarios
             }
             return comentarios;
         }
-     
+        public static List<Comentario> OrdenarLikes(List<Comentario> comentarios)
+        {
+            List<Comentario> comentariosOrdenados = new List<Comentario>();
+            var comentariosRecientes = from c in comentarios
+                                       orderby c.Likes descending
+                                       select c;
+            foreach (var c in comentariosRecientes)
+            {
+                comentariosOrdenados.Add(c);
+            }
+            return comentariosOrdenados;
+        }
+        public static List<Comentario> OrdenarRecientes(List<Comentario> comentarios)
+        {
+            List<Comentario> comentariosOrdenados = new List<Comentario>();
+            var comentariosRecientes = from c in comentarios
+                                       orderby c.Fecha descending
+                                       select c;
+            foreach (var c in comentariosRecientes)
+            {
+                comentariosOrdenados.Add(c);
+            }
+            return comentariosOrdenados;
+        }
+
     }
 }
