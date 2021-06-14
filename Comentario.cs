@@ -33,44 +33,61 @@ namespace Comentarios
         public int ID { get; set; }
         public int Likes { get; set; }
         public string Texto { get; set; }
-        public bool Es_Inapropiado { get; set; }
+        public string Estado { get; set; }
         public Usuario Autor { get; set; }
         public DateTime Fecha { get; set; }
 
         public Comentario() { }
-        public Comentario(int id, int likes, string texto, bool inapropiado, Usuario autor, DateTime fecha)
+        public Comentario(int id, int likes, string texto, string estado, Usuario autor, DateTime fecha)
         {
             ID = id;
             Likes = likes;
             Texto = texto;
             Autor = autor;
             Fecha = fecha;
-            Es_Inapropiado = inapropiado;
+            Estado = estado;
         }
-
         public override string ToString()
         {
-            return String.Format($"{ID}; Likes: {Likes}; <{Texto}>; By: {Autor}; On: {Fecha}\n");
+            string comentario;
+            if (Estado == "Borrar")
+            {
+                comentario = $"By: {Autor}; Likes: {Likes}; Este comentario ha sido borrado; On: {Fecha}";
+            }
+            else if (Estado == "Inapropiado")
+            {
+                comentario = $"By: {Autor}; Likes: {Likes}; Este comentario fue marcado como inapropiado; On: {Fecha}";
+            }
+            else
+            {
+                comentario = $"By: {Autor}; Likes: {Likes}; \" {Texto} \"; On: {Fecha}";
+            }
+            return String.Format(comentario);
         }
     }
 
     class ComentarioDB
     {
         //Ruta = C:\Users\Usuario\OOP-21\Comentarios\ComentariosDB.txt
-        public static void SaveToFile(Comentario comentario, string path)
+
+        
+        public static void SaveToFile(List<Comentario> comentarios, string path)
         {
             StreamWriter textOut = null;
             try
             {
-                textOut = new StreamWriter(new FileStream(path, FileMode.Append, FileAccess.Write));
-                textOut.Write(comentario.ID + "|");
-                textOut.Write(comentario.Likes + "|");
-                textOut.Write(comentario.Texto + "|");
-                textOut.Write(comentario.Es_Inapropiado + "|");
-                textOut.Write(comentario.Autor.Nombre + "|");
-                textOut.Write(comentario.Autor.Correo + "|");
-                textOut.Write(comentario.Autor.DireccionIP + "|");
-                textOut.WriteLine(comentario.Fecha.ToString("g", CultureInfo.CreateSpecificCulture("es-ES")));
+                textOut = new StreamWriter(new FileStream(path, FileMode.Create, FileAccess.Write));
+                foreach (Comentario comentario in comentarios)
+                {
+                    textOut.Write(comentario.ID + "|");
+                    textOut.Write(comentario.Likes + "|");
+                    textOut.Write(comentario.Texto + "|");
+                    textOut.Write(comentario.Estado + "|");
+                    textOut.Write(comentario.Autor.Nombre + "|");
+                    textOut.Write(comentario.Autor.Correo + "|");
+                    textOut.Write(comentario.Autor.DireccionIP + "|");
+                    textOut.WriteLine(comentario.Fecha.ToString("g", CultureInfo.CreateSpecificCulture("es-ES")));
+                }
             }
             catch (IOException e)
             {
@@ -104,7 +121,7 @@ namespace Comentarios
                     c.ID = int.Parse(columns[0]);
                     c.Likes = int.Parse(columns[1]);
                     c.Texto = columns[2];
-                    c.Es_Inapropiado = bool.Parse(columns[3]);
+                    c.Estado = columns[3];
                     c.Autor = new Usuario(columns[4], columns[5], columns[6]);
                     c.Fecha = DateTime.Parse(columns[7], CultureInfo.CreateSpecificCulture("es-ES"));
                     comentarios.Add(c);
@@ -127,6 +144,6 @@ namespace Comentarios
             }
             return comentarios;
         }
-
+     
     }
 }
