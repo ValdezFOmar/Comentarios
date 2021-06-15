@@ -32,19 +32,17 @@ namespace Comentarios
             this.ComentarioTxt = new System.Windows.Forms.TextBox();
             this.SubirComentarioBtn = new System.Windows.Forms.Button();
             this.ListBoxComentarios = new System.Windows.Forms.ListBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.BtnBorrar = new System.Windows.Forms.Button();
             this.BtnReportar = new System.Windows.Forms.Button();
             this.BtnLike = new System.Windows.Forms.Button();
             this.BtnOrdenarLikes = new System.Windows.Forms.Button();
             this.BtnOrdenarReciente = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // ComentarioTxt
             // 
             this.ComentarioTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.ComentarioTxt.Location = new System.Drawing.Point(562, 32);
+            this.ComentarioTxt.Location = new System.Drawing.Point(24, 21);
             this.ComentarioTxt.Name = "ComentarioTxt";
             this.ComentarioTxt.Size = new System.Drawing.Size(455, 26);
             this.ComentarioTxt.TabIndex = 0;
@@ -53,7 +51,7 @@ namespace Comentarios
             // SubirComentarioBtn
             // 
             this.SubirComentarioBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.SubirComentarioBtn.Location = new System.Drawing.Point(1023, 29);
+            this.SubirComentarioBtn.Location = new System.Drawing.Point(485, 18);
             this.SubirComentarioBtn.Name = "SubirComentarioBtn";
             this.SubirComentarioBtn.Size = new System.Drawing.Size(111, 32);
             this.SubirComentarioBtn.TabIndex = 2;
@@ -67,25 +65,15 @@ namespace Comentarios
             this.ListBoxComentarios.FormattingEnabled = true;
             this.ListBoxComentarios.HorizontalScrollbar = true;
             this.ListBoxComentarios.ItemHeight = 20;
-            this.ListBoxComentarios.Location = new System.Drawing.Point(562, 72);
+            this.ListBoxComentarios.Location = new System.Drawing.Point(24, 61);
             this.ListBoxComentarios.Name = "ListBoxComentarios";
             this.ListBoxComentarios.Size = new System.Drawing.Size(455, 404);
             this.ListBoxComentarios.TabIndex = 3;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Comentarios.Properties.Resources.Washington;
-            this.pictureBox1.Location = new System.Drawing.Point(31, 11);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(509, 483);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 4;
-            this.pictureBox1.TabStop = false;
-            // 
             // BtnBorrar
             // 
             this.BtnBorrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.BtnBorrar.Location = new System.Drawing.Point(1023, 214);
+            this.BtnBorrar.Location = new System.Drawing.Point(485, 203);
             this.BtnBorrar.Name = "BtnBorrar";
             this.BtnBorrar.Size = new System.Drawing.Size(111, 32);
             this.BtnBorrar.TabIndex = 5;
@@ -96,7 +84,7 @@ namespace Comentarios
             // BtnReportar
             // 
             this.BtnReportar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.BtnReportar.Location = new System.Drawing.Point(1023, 252);
+            this.BtnReportar.Location = new System.Drawing.Point(485, 241);
             this.BtnReportar.Name = "BtnReportar";
             this.BtnReportar.Size = new System.Drawing.Size(111, 32);
             this.BtnReportar.TabIndex = 6;
@@ -107,7 +95,7 @@ namespace Comentarios
             // BtnLike
             // 
             this.BtnLike.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.BtnLike.Location = new System.Drawing.Point(1023, 176);
+            this.BtnLike.Location = new System.Drawing.Point(485, 165);
             this.BtnLike.Name = "BtnLike";
             this.BtnLike.Size = new System.Drawing.Size(111, 32);
             this.BtnLike.TabIndex = 7;
@@ -118,7 +106,7 @@ namespace Comentarios
             // BtnOrdenarLikes
             // 
             this.BtnOrdenarLikes.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.BtnOrdenarLikes.Location = new System.Drawing.Point(1023, 110);
+            this.BtnOrdenarLikes.Location = new System.Drawing.Point(485, 99);
             this.BtnOrdenarLikes.Name = "BtnOrdenarLikes";
             this.BtnOrdenarLikes.Size = new System.Drawing.Size(111, 33);
             this.BtnOrdenarLikes.TabIndex = 9;
@@ -129,7 +117,7 @@ namespace Comentarios
             // BtnOrdenarReciente
             // 
             this.BtnOrdenarReciente.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.BtnOrdenarReciente.Location = new System.Drawing.Point(1023, 72);
+            this.BtnOrdenarReciente.Location = new System.Drawing.Point(485, 61);
             this.BtnOrdenarReciente.Name = "BtnOrdenarReciente";
             this.BtnOrdenarReciente.Size = new System.Drawing.Size(111, 32);
             this.BtnOrdenarReciente.TabIndex = 8;
@@ -142,13 +130,12 @@ namespace Comentarios
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(1142, 504);
+            this.ClientSize = new System.Drawing.Size(608, 504);
             this.Controls.Add(this.BtnOrdenarLikes);
             this.Controls.Add(this.BtnOrdenarReciente);
             this.Controls.Add(this.BtnLike);
             this.Controls.Add(this.BtnReportar);
             this.Controls.Add(this.BtnBorrar);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.ListBoxComentarios);
             this.Controls.Add(this.SubirComentarioBtn);
             this.Controls.Add(this.ComentarioTxt);
@@ -156,7 +143,6 @@ namespace Comentarios
             this.Text = "Twister";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -167,7 +153,6 @@ namespace Comentarios
         private System.Windows.Forms.TextBox ComentarioTxt;
         private System.Windows.Forms.Button SubirComentarioBtn;
         private System.Windows.Forms.ListBox ListBoxComentarios;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button BtnBorrar;
         private System.Windows.Forms.Button BtnReportar;
         private System.Windows.Forms.Button BtnLike;

@@ -26,7 +26,7 @@ namespace Comentarios
             return String.Format($"{Nombre}");
         }
     }
-    class Comentario : IComparable
+    class Comentario
     {
         public int ID { get; set; }
         public int Likes { get; set; }
@@ -48,26 +48,33 @@ namespace Comentarios
         public override string ToString()
         {
             string comentario;
-            if (Estado == "Borrar")
+            try
             {
-                comentario = $"By: {Autor} - Este comentario ha sido borrado - Likes: {Likes} - On: {Fecha}";
+                if (Estado == "Borrar")
+                {
+                    comentario = $"By: {Autor} - Este comentario ha sido borrado - On: {Fecha}";
+                }
+                else if (Estado == "Inapropiado")
+                {
+                    comentario = $"By: {Autor} - Este comentario fue marcado como inapropiado - On: {Fecha}";
+                }
+                else
+                {
+                    comentario = $"By: {Autor} - Likes: {Likes} - \" {Texto} \" - On: {Fecha}";
+                }
+                return String.Format(comentario);
             }
-            else if (Estado == "Inapropiado")
+            catch (FormatException e)
             {
-                comentario = $"By: {Autor} - Este comentario fue marcado como inapropiado - Likes: {Likes} - On: {Fecha}";
+                MessageBox.Show(e.ToString());
+                return String.Format("");
             }
-            else
+            catch (Exception e)
             {
-                comentario = $"By: {Autor} - \" {Texto} \" - Likes: {Likes} - On: {Fecha}";
+                MessageBox.Show(e.ToString());
+                return String.Format("");
             }
-            return String.Format(comentario);
         }
-
-        public int CompareTo(object obj)
-        {
-            return Likes.CompareTo((obj as Comentario).Likes);
-        }
-
     }
     class ComentarioDB
     {
@@ -147,10 +154,10 @@ namespace Comentarios
         public static List<Comentario> OrdenarLikes(List<Comentario> comentarios)
         {
             List<Comentario> comentariosOrdenados = new List<Comentario>();
-            var comentariosRecientes = from c in comentarios
+            var comentariosPorLikes = from c in comentarios
                                        orderby c.Likes descending
                                        select c;
-            foreach (var c in comentariosRecientes)
+            foreach (var c in comentariosPorLikes)
             {
                 comentariosOrdenados.Add(c);
             }

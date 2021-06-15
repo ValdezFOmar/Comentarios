@@ -11,6 +11,7 @@ namespace Comentarios
         string Estado = "Normal";
         List<Comentario> comentariosFromFile = ComentarioDB.ReadFromFile(@"C:\Users\Usuario\OOP-21\Comentarios\ComentariosDB.txt");
         List<Comentario> comentarios = new List<Comentario>();
+        char[] caracteresProhibidos = new char[] {'|', '{', '}'};
 
         public void EscribirComentarios()
         {
@@ -46,13 +47,33 @@ namespace Comentarios
 
         private void SubirComentarioBtn_Click(object sender, EventArgs e)
         {
-            int id = ListBoxComentarios.Items.Count; 
-            Comentario comentario = new Comentario(id, 0, ComentarioTxt.Text.Trim(), "Normal",
-                                                   new Usuario("Coco", "coco@gmail.com", "323.3.24.24"), DateTime.Now);
-            comentarios.Add(comentario);
-            EscribirComentarios();
-            ComentarioTxt.Text = "";
-            ComentarioTxt.Focus();
+            string texto = ComentarioTxt.Text.Trim();
+            int index = 0;
+
+            for (int i = 0; i < caracteresProhibidos.Length; i++)
+            {
+                index = texto.IndexOf(caracteresProhibidos[i]);
+                if (index != -1)
+                {
+                    i = caracteresProhibidos.Length;
+                }
+            }
+
+            if (index == -1)
+            {
+                int id = ListBoxComentarios.Items.Count;
+                Comentario comentario = new Comentario(id, 0, texto, "Normal", new Usuario("Coco", "coco@gmail.com", "323.3.24.24"), DateTime.Now);
+                comentarios.Add(comentario);
+                EscribirComentarios();
+                ComentarioTxt.Text = "";
+                ComentarioTxt.Focus();
+            }
+            else
+            {
+                MessageBox.Show("No puedes introducir los caracteres: | , { , } \nBorra o intenta utilizar otro caracter.",
+                    "Advertencia de Entrada de Datos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                ComentarioTxt.Focus();
+            }
         }
 
         private void ComentarioTxt_TextChanged(object sender, EventArgs e)

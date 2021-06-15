@@ -1,0 +1,10 @@
+0|2|jkxfjgxj|Normal|Coco|coco@gmail.com|323.3.24.24|15/06/2021 12:41
+1|1|chchhh|Inapropiado|Coco|coco@gmail.com|323.3.24.24|15/06/2021 12:42
+2|0|1111111111111111111111111111111111111|Normal|Coco|coco@gmail.com|323.3.24.24|15/06/2021 12:47
+3|0|dhdfhdf|Inapropiado|Coco|coco@gmail.com|323.3.24.24|15/06/2021 12:47
+4|1|fdhfhdhfdh|Inapropiado|Coco|coco@gmail.com|323.3.24.24|15/06/2021 12:47
+5|0|sgsfg|Inapropiado|Coco|coco@gmail.com|323.3.24.24|15/06/2021 12:47
+6|0|dfhdh|Normal|Coco|coco@gmail.com|323.3.24.24|15/06/2021 12:47
+7|0|3|Normal|Coco|coco@gmail.com|323.3.24.24|15/06/2021 12:47
+8|0|2|Normal|Coco|coco@gmail.com|323.3.24.24|15/06/2021 12:47
+9|0|1|Normal|Coco|coco@gmail.com|323.3.24.24|15/06/2021 12:47
